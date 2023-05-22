@@ -1,0 +1,46 @@
+<div class="container">
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label>Nom Patient en tapant</label>
+    <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+    </div>
+    </form>
+ <!-- <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label>Nom Patient en tapant</label>
+    <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+    </div>
+    </form>-->
+
+
+
+  <div class="card shadow mb-4">
+  <div class="card-body">
+  <table  class="table table-striped">
+     <thead>
+      <tr> 
+          <th>Id</th>
+          <th>Nom</th> 
+          <th>Prenom</th> 
+          <th>Date </th>
+          <th>Service </th>
+       </tr>
+       
+      </thead>
+  <tbody *ngFor="let patient of patients | searchFilter:searchTerm ">
+  <tr >
+      <td>{{patient.idPatient}}</td>
+      <td>{{patient.nomPatient}}</td>
+      <td>{{patient.prenomPatient}}</td>
+      <td>{{patient.datenaiss| date:'dd/MM/yyyy'}}</td>
+      <td>{{patient.service.nomSer}}</td>
+    <!-- 
+      <td><a class="btn btn-danger" (click)="supprimerPatient(patient)">Supprimer</a></td>
+      <td><a class="btn btn-success" [routerLink]="['/updatePatient',patient.idPatient]">Modifier</a></td> 
+      --> 
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+</div>

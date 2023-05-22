@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un Patient :</h2>
+    </div>
+    <form >
+        <div  class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID patient</label><input type="text" [(ngModel)]="newPatient.idPatient"name="idProduit" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Nom patient</label>
+        <input type="text"[(ngModel)]= "newPatient.nomPatient"
+        name="nomPatient" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >prenom patient</label>
+        <input type="text" [(ngModel)]= "newPatient.prenomPatient"
+        name="prenomPatient" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date naissance</label>
+        <input type="date" [(ngModel)]= "newPatient.datenaiss"
+        name="datenaiss" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Services</label>
+            <select class="form-control form-control-lg" id="idSer" name="idSer"
+            [(ngModel)]="newIdSer">
+             <option *ngFor="let Ser of services" [value]="Ser.idSer" >
+             {{Ser.nomSer}}
+            </option>
+            </select>
+            </div>
+ <div class="mt-2">
+<button type="submit" (click)="addPatient()"class="btn btn-success">Ajouter</button>
+  <div>
+<h3> {{mes}}</h3>
+        </div>
+        </div>
+        </form>
+        </div>

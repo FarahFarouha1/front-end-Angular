@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Patient :</h2>
+    </div>
+    <form >
+    <div   class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Patient</label>
+    <input  readonly type="text" [(ngModel)]="currentPatient.idPatient"
+    name="idPatient" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom patient</label>
+    <input type="text"[(ngModel)]= "currentPatient.nomPatient"
+    name="nomPatient" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >prenom patient</label>
+    <input type="text" [(ngModel)]= "currentPatient.prenomPatient"
+    name="prenomPatient" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date naissance</label>
+<input type="date" [ngModel]="currentPatient.datenaiss | date: 'yyyy-MM-dd'"
+(ngModelChange)=" currentPatient.datenaiss= $event" name="datenaiss"
+ class="form-control">
+</div>
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Service</label>
+    <select class="form-control form-control-lg" id="idSer" name="idSer"
+    [(ngModel)]="updatedSerId">
+    <option *ngFor="let ser of services" [value]="ser.idSer" >
+    {{ser.nomSer}}
+    </option>
+    </select>
+    </div>
+    
+<div class="mt-2">
+<button type="submit" (click)="updatePatient()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>

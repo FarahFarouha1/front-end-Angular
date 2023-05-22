@@ -1,0 +1,17 @@
+    
+    <form>
+    <div [hidden]="ajout" >
+    <label>ID service</label>
+    <input type="text"[readonly]="!ajout" [(ngModel)]="serviceG.idSer" name="idService" class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom service</label>
+    <input type="text" [(ngModel)]="serviceG.nomSer" name="nomService" class="form-control"
+    placeholder="Entrez un nom de service...">
+    </div>
+    <div class="mt-2">
+     <button type="submit" [disabled]="!serviceG.nomSer" class="btn btn-success"
+    (click)="saveService()" >{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+    </div>
+    </form>
+ 
